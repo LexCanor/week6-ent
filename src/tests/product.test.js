@@ -49,7 +49,7 @@ test("POST -> BASE_URL, should return statusCode 201, and res.body.title === pro
 
 })
 
-test("GET -> BASE_URL, should retunr statusCode 200, and res.body===1", async () => {
+test("GET -> BASE_URL, should return statusCode 200, and res.body === 1", async () => {
 
     const res = await request(app)
         .get(BASE_URL)
@@ -59,7 +59,7 @@ test("GET -> BASE_URL, should retunr statusCode 200, and res.body===1", async ()
     expect(res.body).toHaveLength(1)
 })
 
-test('GET -> BASE_URL/:id, should return statusCode 201, and res.body.length ===1 ', async () => {
+test('GET -> BASE_URL/:id, should return statusCode 201, and res.body.length === 1 ', async () => {
     const res = await request(app)
         .get(`${BASE_URL}/${productId}`)
 

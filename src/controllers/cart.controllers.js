@@ -69,13 +69,14 @@ const remove = catchError(async(req, res) => {
 
 const update = catchError(async(req, res) => {
     const { id } = req.params;
+    const userId = req.user.id
 
     delete req.body.userId
     delete req.body.productId
 
     const result = await Cart.update(
         req.body,
-        { where: { id, userId: req.user.id }, returning: true }
+        { where: { id, userId }, returning: true }
     );
     if(result[0] === 0) return res.sendStatus(404);
     return res.json(result[1][0]);
